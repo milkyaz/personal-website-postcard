@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import Hero from "@/components/Hero.vue";
+import Reasons from "@/components/Reasons.vue";
 </script>
 
 <template>
   <main class="min-h-screen">
     <Hero />
 
-    <section id="content" class="py-16">
-      <div class="mx-auto max-w-3xl px-4">
-        <div class="alert alert-info">
-          <span>Дальше добавим: причины, галерею, таймлайн и письмо 💌</span>
+    <section id="content">
+      <Reasons />
+
+      <section class="py-16">
+        <div class="mx-auto max-w-5xl px-4">
+          <div class="alert alert-info">
+            <span>Дальше добавим: галерею, таймлайн и финальное письмо 💌</span>
+          </div>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 </template>
