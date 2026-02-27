@@ -2,6 +2,7 @@
 import { loveData } from "@/data/love";
 import { useReveal } from "@/composables/useReveal";
 import { shootConfetti } from "@/utils/confetti";
+import QrCode from "@/components/QrCode.vue";
 
 const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true });
 
@@ -89,6 +90,9 @@ function openLetter() {
           </form>
         </dialog>
       </div>
+    </div>
+    <div class="mt-6">
+      <QrCode title="Хочешь открыть на телефоне? Вот QR ✨" />
     </div>
   </section>
 </template>
