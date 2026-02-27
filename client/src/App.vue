@@ -2,6 +2,7 @@
 import Hero from "@/components/Hero.vue";
 import Reasons from "@/components/Reasons.vue";
 import Gallery from "@/components/Gallery.vue";
+import Timeline from "@/components/Timeline.vue";
 </script>
 
 <template>
@@ -11,11 +12,12 @@ import Gallery from "@/components/Gallery.vue";
     <section id="content">
       <Reasons />
       <Gallery />
+      <Timeline />
 
       <section class="py-16">
         <div class="mx-auto max-w-5xl px-4">
           <div class="alert alert-info">
-            <span>Дальше добавим: таймлайн и финальное письмо 💌</span>
+            <span>Осталось самое главное: финальное письмо с модалкой 💌</span>
           </div>
         </div>
       </section>
