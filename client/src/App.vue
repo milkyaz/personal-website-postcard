@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Hero from "@/components/Hero.vue";
 import Reasons from "@/components/Reasons.vue";
+import Gallery from "@/components/Gallery.vue";
 </script>
 
 <template>
@@ -9,11 +10,12 @@ import Reasons from "@/components/Reasons.vue";
 
     <section id="content">
       <Reasons />
+      <Gallery />
 
       <section class="py-16">
         <div class="mx-auto max-w-5xl px-4">
           <div class="alert alert-info">
-            <span>Дальше добавим: галерею, таймлайн и финальное письмо 💌</span>
+            <span>Дальше добавим: таймлайн и финальное письмо 💌</span>
           </div>
         </div>
       </section>

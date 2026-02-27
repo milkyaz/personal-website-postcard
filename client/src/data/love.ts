@@ -19,7 +19,7 @@ export const loveData = {
     { date: "2022-05-01", title: "Семья", text: "И я каждый день выбираю тебя снова." },
   ],
 
-  photos: ["/photos/1.jpg", "/photos/2.jpg", "/photos/3.jpg", "/photos/4.jpg"],
+  photos: ["/tort-1.jpg", "/tort-2.jpg", "/tort-3.jpg", "/tort-4.jpg"],
 
   letterTitle: "Моё письмо тебе",
   letterText:
