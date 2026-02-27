@@ -3,6 +3,7 @@ import Hero from "@/components/Hero.vue";
 import Reasons from "@/components/Reasons.vue";
 import Gallery from "@/components/Gallery.vue";
 import Timeline from "@/components/Timeline.vue";
+import FinalLetter from "@/components/FinalLetter.vue";
 </script>
 
 <template>
@@ -13,14 +14,7 @@ import Timeline from "@/components/Timeline.vue";
       <Reasons />
       <Gallery />
       <Timeline />
-
-      <section class="py-16">
-        <div class="mx-auto max-w-5xl px-4">
-          <div class="alert alert-info">
-            <span>Осталось самое главное: финальное письмо с модалкой 💌</span>
-          </div>
-        </div>
-      </section>
+      <FinalLetter />
     </section>
   </main>
 </template>
