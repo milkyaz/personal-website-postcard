@@ -12,10 +12,10 @@ function scrollToContent() {
 </script>
 
 <template>
-  <section class="min-h-[100svh] flex items-center">
-    <div class="w-full">
+  <section class="mt-10">
+    <div class="w-full flex flex-row justify-center">
       <div class="mx-auto max-w-3xl px-4">
-        <div class="card bg-base-200 shadow-xl">
+        <div class="card bg-base-200/70 backdrop-blur shadow-xl">
           <div class="card-body gap-6">
             <div class="flex items-center justify-between gap-4">
               <div class="badge badge-primary badge-lg">8 марта</div>

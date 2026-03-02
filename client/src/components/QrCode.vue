@@ -24,7 +24,7 @@ watch(() => props.url, generate);
 </script>
 
 <template>
-  <div class="card bg-base-200 shadow-xl">
+  <div class="card bg-base-200/70 backdrop-blur shadow-xl">
     <div class="card-body gap-4">
       <div class="flex items-center justify-between gap-3">
         <h3 class="text-lg font-semibold">{{ title ?? "QR-код" }}</h3>

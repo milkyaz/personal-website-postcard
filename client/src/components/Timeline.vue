@@ -45,7 +45,7 @@ function formatDate(iso: string) {
           <div
             v-for="(it, idx) in items"
             :key="it.date + idx"
-            class="card bg-base-200 shadow-lg"
+            class="card bg-base-200/70 backdrop-blur shadow-lg"
           >
             <div class="card-body">
               <div class="flex flex-wrap items-center justify-between gap-3">

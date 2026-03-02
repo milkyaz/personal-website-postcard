@@ -29,7 +29,7 @@ const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true }
           <div
             v-for="(reason, idx) in loveData.reasons"
             :key="idx"
-            class="card bg-base-200 shadow-lg hover:shadow-xl transition-shadow"
+            class="card bg-base-200/70 backdrop-blur hover:shadow-xl transition-shadow"
           >
             <div class="card-body">
               <div class="flex items-center justify-between">

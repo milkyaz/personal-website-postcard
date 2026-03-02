@@ -23,7 +23,7 @@ function openLetter() {
         class="transition-all duration-700 ease-out"
         :class="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'"
       >
-        <div class="card bg-base-200 shadow-xl">
+        <div class="card bg-base-200/70 backdrop-blur shadow-xl">
           <div class="card-body gap-6">
             <div class="flex items-center justify-between flex-wrap gap-3">
               <div>
@@ -43,7 +43,7 @@ function openLetter() {
               </span>
             </div>
 
-            <div class="card-actions justify-center">
+            <div class="card-actions justify-center ">
               <button class="btn btn-primary btn-wide" @click="openLetter">
                 Открыть письмо
               </button>
