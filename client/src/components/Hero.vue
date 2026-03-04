@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { loveData } from "@/data/love";
-import { daysBetween } from "@/utils/date";
+import {computed} from "vue";
+import {loveData} from "@/data/love";
+import {daysBetween} from "@/utils/date";
+import {Icon} from "@iconify/vue";
+import { motion } from "motion-v";
 
 const daysTogether = computed(() => daysBetween(loveData.togetherSince));
 
 function scrollToContent() {
   const el = document.querySelector("#content");
-  el?.scrollIntoView({ behavior: "smooth", block: "start" });
+  el?.scrollIntoView({behavior: "smooth", block: "start"});
 }
 </script>
 
@@ -23,15 +25,21 @@ function scrollToContent() {
             </div>
 
             <div class="space-y-3">
-              <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
-                {{ loveData.title }}
-              </h1>
-              <p class="text-base sm:text-lg opacity-80">
+              <div class="flex flex-row gap-1">
+                <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
+                  {{ loveData.title }}
+                </h1>
+                <Icon icon="emojione-v1:bouquet-of-flowers" width="40px"/>
+              </div>
+              <p class="text-base sm:text-lg opacity-80 mb-1">
                 {{ loveData.subtitle }}
+              </p>
+              <p class="text-base sm:text-lg opacity-80">
+                {{ loveData.subtitle2 }}
               </p>
             </div>
 
-            <div class="stats stats-vertical sm:stats-horizontal shadow bg-base-100">
+            <div class="stats stats-horizontal shadow bg-base-100">
               <div class="stat">
                 <div class="stat-title">Мы вместе</div>
                 <div class="stat-value text-3xl sm:text-4xl">
@@ -40,10 +48,17 @@ function scrollToContent() {
                 <div class="stat-desc">дней</div>
               </div>
 
-              <div class="stat">
-                <div class="stat-title">Сегодня</div>
-                <div class="stat-value text-3xl sm:text-4xl">❤️</div>
-                <div class="stat-desc">только для тебя</div>
+              <div class="stat justify-items-center items-center">
+
+                <motion.div
+                  :animate="{ scale: [1, 1.25, 1, 1.15, 1] }"
+                  :transition="{
+                    duration: 1.2,
+                    repeat: Infinity,
+                     ease: 'easeInOut'
+                   }">️
+                  <Icon class="mb-5" icon="streamline-stickies-color:love" width="50"/>
+                </motion.div>
               </div>
             </div>
 
