@@ -64,7 +64,7 @@ watch(() => props.url, generate);
           </div>
 
           <p class="text-xs opacity-60">
-            Совет: после деплоя QR лучше генерировать на финальный домен (Vercel/Netlify).
+            Совет: после деплоя QR лучше генерировать на финальный домен.
           </p>
         </div>
       </div>

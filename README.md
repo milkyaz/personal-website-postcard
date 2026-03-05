@@ -6,22 +6,6 @@
 
 ```bash
 cd client
-npm install
-npm run dev
-```
-
-## Деплой на Vercel
-
-Проект уже настроен через `vercel.json` (сборка из `client/`).
-
-### Через UI
-1. Импортируй репозиторий в Vercel.
-2. Нажми `Deploy`.
-
-### Через CLI
-
-```bash
-npm i -g vercel
-vercel
-vercel --prod
+yarn 
+yarn dev
 ```
