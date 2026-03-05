@@ -1,13 +1,27 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { loveData } from "@/data/love";
 import { useReveal } from "@/composables/useReveal";
 
-type Item = { date: string; title: string; text: string };
+type Item = { date: string; title: string; text: string; photos?: string[], tags?: string[] };
 
 const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true });
 
 const items = computed<Item[]>(() => loveData.timeline ?? []);
+const selectedPhoto = ref<string | null>(null);
+const selectedTitle = ref<string>("");
+
+function openPhoto(photo: string, title: string) {
+  selectedPhoto.value = photo;
+  selectedTitle.value = title;
+  (document.getElementById("timeline_photo_modal") as HTMLDialogElement | null)?.showModal();
+}
+
+function closePhoto() {
+  (document.getElementById("timeline_photo_modal") as HTMLDialogElement | null)?.close();
+  selectedPhoto.value = null;
+  selectedTitle.value = "";
+}
 
 function formatDate(iso: string) {
   const d = new Date(iso);
@@ -63,10 +77,24 @@ function formatDate(iso: string) {
                 {{ it.text }}
               </p>
 
-              <div class="mt-3 flex flex-wrap gap-2 opacity-70">
-                <span class="badge badge-ghost">память</span>
-                <span class="badge badge-ghost">тепло</span>
-                <span class="badge badge-ghost">мы</span>
+              <div v-if="it.photos?.length" class="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                <button
+                  v-for="(photo, photoIdx) in it.photos"
+                  :key="`${it.date}-${photoIdx}`"
+                  type="button"
+                  class="group overflow-hidden rounded-xl shadow-md"
+                  @click="openPhoto(photo, `${it.title} ${photoIdx + 1}`)"
+                >
+                  <img
+                    :src="photo"
+                    :alt="`${it.title} ${photoIdx + 1}`"
+                    class="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] sm:h-44"
+                    loading="lazy"
+                  />
+                </button>
+              </div>
+              <div class="mt-3 flex flex-row flex-wrap gap-2 opacity-70">
+                <span v-for="el in it.tags" class="badge badge-ghost">{{el}}</span>
               </div>
             </div>
           </div>
@@ -77,6 +105,27 @@ function formatDate(iso: string) {
             Таймлайн пока пустой — добавь события в <b>loveData.timeline</b>.
           </span>
         </div>
+        <dialog id="timeline_photo_modal" class="modal" @close="closePhoto">
+          <div class="modal-box p-3 sm:p-4 max-w-4xl">
+            <div class="flex items-center justify-between gap-2 px-1 pb-2">
+              <span class="badge badge-primary">Фото</span>
+              <form method="dialog">
+                <button class="btn btn-ghost btn-sm" aria-label="close" @click="closePhoto">✕</button>
+              </form>
+            </div>
+            <div class="rounded-2xl overflow-hidden bg-base-200">
+              <img
+                v-if="selectedPhoto"
+                :src="selectedPhoto"
+                :alt="selectedTitle || 'selected timeline photo'"
+                class="w-full max-h-[70svh] object-contain"
+              />
+            </div>
+          </div>
+          <form method="dialog" class="modal-backdrop">
+            <button aria-label="backdrop" @click="closePhoto">close</button>
+          </form>
+        </dialog>
       </div>
     </div>
   </section>
