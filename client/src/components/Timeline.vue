@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { loveData } from "@/data/love";
 import { useReveal } from "@/composables/useReveal";
+import { toPublicUrl } from "@/utils/publicPath";
 
 type Item = { date: string; title: string; text: string; photos?: string[], tags?: string[] };
 
@@ -12,7 +13,7 @@ const selectedPhoto = ref<string | null>(null);
 const selectedTitle = ref<string>("");
 
 function openPhoto(photo: string, title: string) {
-  selectedPhoto.value = photo;
+  selectedPhoto.value = toPublicUrl(photo);
   selectedTitle.value = title;
   (document.getElementById("timeline_photo_modal") as HTMLDialogElement | null)?.showModal();
 }
@@ -86,7 +87,7 @@ function formatDate(iso: string) {
                   @click="openPhoto(photo, `${it.title} ${photoIdx + 1}`)"
                 >
                   <img
-                    :src="photo"
+                    :src="toPublicUrl(photo)"
                     :alt="`${it.title} ${photoIdx + 1}`"
                     class="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03] sm:h-44"
                     loading="lazy"

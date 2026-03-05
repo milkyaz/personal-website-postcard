@@ -8,21 +8,20 @@ import Components from 'unplugin-vue-components/vite'
 import MotionResolver from 'motion-v/resolver'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+  base: command === "build" ? "/personal-website-postcard/" : "/",
   plugins: [
     vue(),
     vueDevTools(),
     tailwindcss(),
-        Components({
+    Components({
       dts: true,
-      resolvers: [
-        MotionResolver()
-      ],
+      resolvers: [MotionResolver()],
     }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      "@": fileURLToPath(new URL("./src", import.meta.url)),
     },
   },
-})
+}))

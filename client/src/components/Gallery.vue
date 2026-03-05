@@ -2,6 +2,7 @@
 import { computed, ref } from "vue";
 import { loveData } from "@/data/love";
 import { useReveal } from "@/composables/useReveal";
+import { toPublicUrl } from "@/utils/publicPath";
 
 const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true });
 
@@ -13,6 +14,10 @@ const selectedPhoto = computed(() => {
   if (selectedIndex.value === null) return null;
   return photos.value[selectedIndex.value] ?? null;
 });
+
+function photoUrl(src: string) {
+  return toPublicUrl(src);
+}
 
 function open(index: number) {
   selectedIndex.value = index;
@@ -63,7 +68,7 @@ function next() {
             @click="open(idx)"
           >
             <img
-              :src="src"
+              :src="photoUrl(src)"
               alt="photo"
               class="h-36 sm:h-44 lg:h-48 w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
               loading="lazy"
@@ -107,7 +112,7 @@ function next() {
             <div class="relative rounded-2xl overflow-hidden bg-base-200">
               <img
                 v-if="selectedPhoto"
-                :src="selectedPhoto"
+                :src="photoUrl(selectedPhoto)"
                 alt="selected"
                 class="w-full max-h-[70svh] object-contain"
               />
