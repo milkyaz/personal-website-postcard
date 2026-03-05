@@ -20,18 +20,42 @@ timeline: [
   {date: "2022-05-01", title: "Семья", text: "И я каждый день выбираю тебя снова."},
 ],
 
-  photos
-:
-["/tort-1.jpg", "/tort-2.jpg", "/tort-3.jpg", "/tort-4.jpg"],
+  photos: [
+    "/tort-3.jpg",
+    "/pic-1.jpg",
+    "/pic-2.jpg",
+    "/pic-3.jpg",
+    "/pic-4.jpg",
+    "/pic-5.jpg",
+    "/pic-6.jpg",
+    "/pic-7.jpg",
+    "/pic-8.jpg",
+    "/pic-9.jpg",
+    "/pic-10.jpg",
+    "/pic-11.jpg",
+    "/pic-12.jpg",
+    "/pic-13.jpg",
+    "/pic-14.jpg",
+    "/pic-15.jpg",
+    "/pic-16.jpg",
+    "/pic-17.jpg",
+    "/pic-18.jpg",
+    "/pic-19.jpg",
+    "/pic-20.jpg",
+    "/pic-21.jpg",
+    "/pic-22.jpg",
+    "/pic-23.jpg",
+    "/pic-24.jpg",
+    "/pic-25.jpg",
+    "/pic-26.jpg",
+    "/pic-27.jpg",
+  ],
 
-  letterTitle
-:
+  letterTitle:
 "Моё письмо тебе",
-  letterText
-:
+  letterText:
 "Спасибо тебе за заботу, тепло и любовь.\n" +
 "Я очень ценю тебя и горжусь тобой.\n" +
 "Пусть этой весной у тебя будет больше радости.\n\n" +
 "Твой ❤️",
-}
-;
+};
