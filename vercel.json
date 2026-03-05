@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd client && yarn build",
+  "buildCommand": "cd client && yarn build-only",
   "outputDirectory": "client/dist",
   "installCommand": "cd client && yarn install --frozen-lockfile",
   "rewrites": [
