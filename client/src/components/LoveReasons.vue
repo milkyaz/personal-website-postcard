@@ -1,8 +1,21 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { loveData } from "@/data/love";
 import { useReveal } from "@/composables/useReveal";
 
+type ReasonItem = {
+  title: string;
+  tags?: string[];
+};
+
 const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true });
+
+const reasons = computed(() =>
+  Object.values(loveData.reasons as Record<string, ReasonItem>).map((reason) => ({
+    title: reason.title,
+    tags: reason.tags ?? [],
+  })),
+);
 </script>
 
 <template>
@@ -15,8 +28,8 @@ const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true }
       >
         <div class="flex items-end justify-between gap-4 mb-8">
           <div>
-            <h2 class="text-2xl sm:text-3xl font-bold">Почему ты лучшая</h2>
-            <p class="opacity-70 mt-2">Небольшой список, но он бесконечный 😊</p>
+            <h2 class="text-2xl sm:text-3xl font-bold">За что я тебя люблю</h2>
+            <p class="opacity-70 mt-2">На самом деле список бесконечный 😊</p>
           </div>
 
           <div class="hidden sm:flex gap-2">
@@ -27,8 +40,8 @@ const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true }
 
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <div
-            v-for="(reason, idx) in loveData.reasons"
-            :key="idx"
+            v-for="(reason, idx) in reasons"
+            :key="reason.title"
             class="card bg-base-200/70 backdrop-blur hover:shadow-xl transition-shadow"
           >
             <div class="card-body">
@@ -36,20 +49,17 @@ const { el, isVisible } = useReveal<HTMLElement>({ threshold: 0.15, once: true }
                 <div class="badge badge-secondary">#{{ idx + 1 }}</div>
                 <div class="opacity-60 text-sm">100%</div>
               </div>
-
               <p class="text-base leading-relaxed mt-2">
-                {{ reason }}
+                {{ reason.title }}
               </p>
-
               <div class="mt-3 flex gap-2 flex-wrap opacity-70">
-                <span class="badge badge-outline">тепло</span>
-                <span class="badge badge-outline">красота</span>
-                <span class="badge badge-outline">вдохновение</span>
+                <span v-for="tag in reason.tags" :key="`${reason.title}-${tag}`" class="badge badge-outline">
+                  {{ tag }}
+                </span>
               </div>
             </div>
           </div>
         </div>
-
         <div class="mt-8">
           <div class="alert bg-base-200/60">
             <span class="opacity-80"

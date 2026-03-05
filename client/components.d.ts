@@ -14,8 +14,8 @@ declare module 'vue' {
     FinalLetter: typeof import('./src/components/FinalLetter.vue')['default']
     Gallery: typeof import('./src/components/Gallery.vue')['default']
     Hero: typeof import('./src/components/Hero.vue')['default']
+    LoveReasons: typeof import('./src/components/LoveReasons.vue')['default']
     QrCode: typeof import('./src/components/QrCode.vue')['default']
-    Reasons: typeof import('./src/components/Reasons.vue')['default']
     Timeline: typeof import('./src/components/Timeline.vue')['default']
   }
 }

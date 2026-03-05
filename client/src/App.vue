@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Hero from "@/components/Hero.vue";
-import Reasons from "@/components/Reasons.vue";
+import LoveReasons from "@/components/LoveReasons.vue";
 import Gallery from "@/components/Gallery.vue";
 import Timeline from "@/components/Timeline.vue";
 import FinalLetter from "@/components/FinalLetter.vue";
@@ -18,7 +18,7 @@ import FinalLetter from "@/components/FinalLetter.vue";
     <main class="relative">
       <Hero />
       <section id="content">
-        <Reasons />
+        <LoveReasons />
         <Gallery />
         <Timeline />
         <FinalLetter />
