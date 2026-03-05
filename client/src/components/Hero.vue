@@ -25,8 +25,8 @@ function scrollToContent() {
             </div>
 
             <div class="space-y-3">
-              <div class="flex flex-row gap-1">
-                <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
+              <div class="flex flex-row items-center gap-1">
+                <h1 class="text-2xl sm:text-5xl font-bold leading-tight">
                   {{ loveData.title }}
                 </h1>
                 <Icon icon="emojione-v1:bouquet-of-flowers" width="40px"/>
